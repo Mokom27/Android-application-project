@@ -1,0 +1,20 @@
+fun describeTemperature(temp: Int?): String {
+    return when {
+        temp == null -> "No data"
+        temp <= 0 -> "Freezing"
+        temp in 1..15 -> "Cold"
+        temp in 16..25 -> "Mild"
+        temp in 26..35 -> "Warm"
+        temp in 36..45 -> "Hot"
+        else -> "Extreme"
+    }
+}
+
+fun main() {
+
+    val temperatures = listOf(-2, 10, 20, 30, 40, 50, null)
+
+    for (t in temperatures) {
+        println("${t ?: "null"} -> ${describeTemperature(t)}")
+    }
+}
