@@ -1,0 +1,92 @@
+/**
+ * Project Milestone 1 – Data Model
+ * App Idea: CarbonTrack
+ * 
+ * A carbon footprint tracker tailored for students. It automatically calculates and logs emissions from daily activities 
+ * (e.g., transport, food, purchases), provides budget-friendly tips, enables campus comparisons, and fosters peer competition.
+ * 
+ * Users track their "invisible pollution" to reduce it smartly. Universities pay a small fee per student for access, 
+ * keeping it free for users while funding operations and improvements.
+ * 
+ * This file defines the core data class for an emission entry and demonstrates creating + printing instances.
+ */
+
+import java.time.LocalDate
+
+// Main data class representing one emission entry (e.g., from a purchase, meal, or trip)
+data class EmissionEntry(
+    val date: LocalDate,                    // Always required – when the activity happened
+    val activityType: String,               // e.g., "Transport", "Food", "Purchase", "Energy" – categorizes the emission source
+    val description: String,                // Brief details, e.g., "Bus to campus", "Vegan lunch", "New textbook"
+    val co2Emission: Double,                // Emission amount in kg CO2 equivalent – core metric, calculated automatically in full app
+    val tip: String? = null,                // Optional budget-friendly tip, e.g., "Switch to biking next time to save 0.5kg CO2 and $2"
+    val campusLocation: String? = null,     // Optional – e.g., "Main Campus", "Dorm" – for comparisons across campuses
+    val cost: Double? = null                // Optional – monetary cost of the activity, for tying into student budgets
+) {
+    // Optional: small helper method for nice printing (shows emission summary with optional fields)
+    fun getSummary(): String {
+        val tipPart = if (tip.isNullOrBlank()) "" else " | Tip: \"$tip\""
+        val locPart = if (campusLocation.isNullOrBlank()) "" else " @ $campusLocation"
+        val costPart = if (cost == null) "" else " (cost: $$cost)"
+
+        return "$date → $activityType: $description ( ${co2Emission}kg CO2 )$tipPart$locPart$costPart"
+    }
+}
+
+fun main() {
+    // Creating 3+ instances with different combinations of optional fields
+
+    // Entry 1 – minimal (transport example, no tip or cost)
+    val entry1 = EmissionEntry(
+        date = LocalDate.now(),
+        activityType = "Transport",
+        description = "Bus ride to class",
+        co2Emission = 1.2
+        // tip, campusLocation, cost remain null
+    )
+
+    // Entry 2 – with tip and campus location (food example)
+    val entry2 = EmissionEntry(
+        date = LocalDate.of(2026, 3, 4),
+        activityType = "Food",
+        description = "Beef burger at cafeteria",
+        co2Emission = 2.5,
+        tip = "Opt for plant-based next time to cut emissions by 70%",
+        campusLocation = "Main Campus"
+    )
+
+    // Entry 3 – with almost everything (purchase example)
+    val entry3 = EmissionEntry(
+        date = LocalDate.of(2026, 3, 5),
+        activityType = "Purchase",
+        description = "New laptop online",
+        co2Emission = 50.0,
+        tip = "Buy refurbished to save 30kg CO2 and $200",
+        campusLocation = "Dorm",
+        cost = 800.0
+    )
+
+    // Bonus fourth entry – energy use, minimal with cost
+    val entry4 = EmissionEntry(
+        date = LocalDate.now().minusDays(1),
+        activityType = "Energy",
+        description = "8 hours of streaming",
+        co2Emission = 0.8,
+        cost = 1.50
+    )
+
+    // Print them using the summary format
+    println("=== CarbonTrack Emission Entries ===")
+    println(entry1.getSummary())
+    println(entry2.getSummary())
+    println(entry3.getSummary())
+    println(entry4.getSummary())
+
+    // Show default toString() from data class
+    println("\nDefault data class toString() example:")
+    println(entry3)
+
+    // Demonstrate data class equality (useful for tracking duplicates in app)
+    val sameAsEntry1 = EmissionEntry(LocalDate.now(), "Transport", "Bus ride to class", 1.2)
+    println("\nentry1 == sameAsEntry1 ? ${entry1 == sameAsEntry1}")   // true
+}
