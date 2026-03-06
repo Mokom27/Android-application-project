@@ -1,0 +1,35 @@
+data class Student(val name: String, val score: Int?)
+
+// Function 1: Check if score is valid
+fun isValid(score: Int?): Boolean {
+    return score != null && score in 0..100
+}
+
+// Function 2: Get grade
+fun getGrade(score: Int): String {
+    return when {
+        score >= 90 -> "A"
+        score >= 80 -> "B"
+        score >= 70 -> "C"
+        score >= 60 -> "D"
+        else -> "F"
+    }
+}
+
+fun main() {
+
+    val students = listOf(
+        Student("Bohris", 85),
+        Student("Anna", 92),
+        Student("Mike", null),
+        Student("John", 45)
+    )
+
+    // Filter valid scores
+    val validStudents = students.filter { isValid(it.score) }
+
+    // Lambda with forEach
+    validStudents.forEach {
+        println("${it.name} grade: ${getGrade(it.score!!)}")
+    }
+}
