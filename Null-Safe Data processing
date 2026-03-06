@@ -1,0 +1,23 @@
+data class User(val name: String, val email: String?)
+
+fun main() {
+
+    val users = listOf(
+        User("Alex", "alex@example.com"),
+        User("Blake", null),
+        User("Casey", "casey@work.com")
+    )
+
+    var count = 0
+
+    users.forEach {
+        if (it.email != null) {
+            println(it.email.uppercase())
+            count++
+        } else {
+            println("${it.name} has no email")
+        }
+    }
+
+    println("Total users with valid emails: $count")
+}
