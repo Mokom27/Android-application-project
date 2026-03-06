@@ -1,0 +1,21 @@
+fun main() {
+
+    val numbers: List<Int?> = listOf(1, null, 3, null, 5, 6, null, 8)
+
+    // Step 1: Remove null values
+    val nonNullNumbers = numbers.filterNotNull()
+
+    // Step 2: Double each number
+    val doubledNumbers = nonNullNumbers.map { it * 2 }
+
+    // Step 3: Sum the doubled numbers
+    val total = doubledNumbers.sum()
+
+    println("Sum of doubled values: $total")
+
+
+    // ⭐ One-line challenge
+    val oneLineSum = numbers.filterNotNull().map { it * 2 }.sum()
+
+    println("One-line result: $oneLineSum")
+}
