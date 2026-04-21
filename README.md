@@ -1,18 +1,28 @@
-CarbonTrack
-The Carbon Footprint App Built for Students
-We track our steps, our screen time, and our budgets — why not track our carbon footprint too? CarbonTrack is like Fitbit, but for your carbon emissions.
+# CarbonTrack - Student Carbon Footprint App
 
-What is CarbonTrack?
-Our project is about how much pollution your lifestyle creates and makes it visible so you can reduce it in smart ways.
-Carbon footprint = the invisible pollution tied to what you buy, eat, and do.
+An interactive mobile/web app designed to help university students track and reduce their carbon footprint from daily spending and habits.
 
-1. Problem:
-Students want to be sustainable but don’t know their impact
-2. Solution:
-CarbonTrack – automatic carbon tracking made for student life
-3. Revenue Model:
-Universities pay a fee so students can use it for free
-4. Impact:
-Students reduce their footprint, campuses get greener, and we get more income to do further improvements of the app
+## About the Project
 
-As the founders, we created CarbonTrack, bringing this idea to market for universities to pay a small fee per student, which would fund operations and growth while keeping the app free for students to use.​​​​​​​​​​​​​​​​
+CarbonTrack makes climate action simple and fun for students. Instead of complicated calculations, the app automatically tracks the carbon emissions from everyday student activities like buying food, taking transport, shopping for textbooks, and using electricity.
+
+It then gives **practical, budget-friendly suggestions** tailored to student life and uses gamification (leaderboards, squads, challenges, and a growing virtual garden) to keep students motivated.
+
+## Key Features
+
+- **Automatic Carbon Tracking** — See your daily and weekly CO₂ footprint from spending
+- **Campus Leaderboard** — Compare your impact with other students on campus
+- **Squads & Group Challenges** — Create or join squads with friends for friendly competition
+- **Interactive Eco Garden** — Watch a virtual campus garden grow as you and your peers reduce emissions
+- **Habit Logging** — Manually log actions not captured by spending (e.g., using reusable cup, walking instead of riding)
+- **Student-Friendly Tips** — Practical suggestions like using campus bike share, meal prepping with roommates, and buying digital textbooks
+- **Join Campus Challenges** — Participate in weekly challenges with personal progress tracking
+- **Shareable Impact** — Share your weekly achievements
+
+## How It Helps Students
+
+- Makes the invisible carbon impact of daily choices **visible**
+- Provides **affordable and realistic** alternatives instead of expensive "green" options
+- Uses peer pressure and gamification (squads, leaderboards, streaks) — things students naturally respond to
+- Builds lifelong sustainable habits while still being fun
+- Helps students contribute meaningfully to their university’s sustainability goals
